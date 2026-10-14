@@ -13,7 +13,7 @@ export interface HiddenStore {
 // Persists per project in localStorage. Without storage (private mode, blocked site data)
 // the list still works for the session.
 export function createHiddenStore(project: string): HiddenStore {
-  const storageKey = `arachne:hidden:${project}`;
+  const storageKey = `lightweb:hidden:${project}`;
   let keys: HiddenKey[] = load(storageKey);
   const listeners: ((keys: readonly HiddenKey[]) => void)[] = [];
 

@@ -2,6 +2,6 @@
 /fixtures/mini/target
 node_modules
 /web/dist
-.arachne
+.lightweb
 todo.md
 .claude/worktrees

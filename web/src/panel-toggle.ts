@@ -1,4 +1,4 @@
-const STORAGE_KEY = 'arachne.panelCollapsed';
+const STORAGE_KEY = 'lightweb.panelCollapsed';
 
 export interface PanelToggle {
   open(): void;

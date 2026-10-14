@@ -8,10 +8,16 @@ import { createModeToggle } from './mode-toggle';
 import { createPanelToggle } from './panel-toggle';
 import { fileKey, fnKey } from './project';
 import { createSearch, type Absence, type Pick } from './search';
+import { migrateStorage } from './storage-migration';
 import type { Graph } from './types';
 import { fileHiddenKey, fnHiddenKey, hiddenKeyIndex, type HiddenTarget } from './visibility';
 
 async function main() {
+  try {
+    migrateStorage(localStorage);
+  } catch {
+    // Storage can be unavailable (private mode, blocked site data); nothing to migrate.
+  }
   const res = await fetch('/api/graph');
   if (!res.ok) throw new Error(`GET /api/graph failed: HTTP ${res.status}`);
   const graph: Graph = await res.json();

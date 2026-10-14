@@ -1,5 +1,5 @@
 {
-  "name": "arachne-web",
+  "name": "lightweb-web",
   "private": true,
   "type": "module",
   "scripts": {

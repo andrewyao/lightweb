@@ -1,4 +1,4 @@
-//! Runs the language's SCIP indexer, cached under `<root>/.arachne` by a content hash.
+//! Runs the language's SCIP indexer, cached under `<root>/.lightweb` by a content hash.
 
 use std::fs;
 use std::path::{Path, PathBuf};
@@ -9,7 +9,7 @@ use protobuf::Message;
 
 use crate::lang::Language;
 
-const CACHE_DIR: &str = ".arachne";
+const CACHE_DIR: &str = ".lightweb";
 
 /// Returns the path of an index that matches the current sources, indexing if needed.
 pub fn ensure(root: &Path, lang: &Language) -> anyhow::Result<PathBuf> {

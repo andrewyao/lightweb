@@ -2,7 +2,7 @@ import type { HiddenStore } from './hidden-store';
 import type { Graph } from './types';
 import { parseHiddenKey, type HiddenKey, type HiddenTarget } from './visibility';
 
-const COLLAPSED_KEY = 'arachne.hiddenListCollapsed';
+const COLLAPSED_KEY = 'lightweb.hiddenListCollapsed';
 
 export function createHiddenList(
   root: HTMLElement,

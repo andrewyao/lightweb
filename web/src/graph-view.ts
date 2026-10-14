@@ -240,7 +240,7 @@ export function createGraphView(
   // Lets the browser verification script find rows and boxes on screen.
   if (import.meta.env.DEV) {
     Object.assign(window, {
-      __arachneView: {
+      __lightwebView: {
         nodes: () =>
           view.nodes.map((n) => {
             const [x, y] = nodePoint(n);
@@ -250,9 +250,9 @@ export function createGraphView(
         layout: () => laid,
         camera: () => ({ k: camera.k, x: camera.x, y: camera.y }),
       },
-      __arachneLabels: () => placedLabels,
-      __arachneChips: () => chips,
-      __arachneShowPrivate: setPrivateShown,
+      __lightwebLabels: () => placedLabels,
+      __lightwebChips: () => chips,
+      __lightwebShowPrivate: setPrivateShown,
     });
   }
 

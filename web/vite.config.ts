@@ -3,15 +3,15 @@ import { resolve } from 'node:path';
 import { defineConfig, type Plugin } from 'vite';
 import type { Graph } from './src/types.ts';
 
-const FIXTURE_GRAPH = process.env.ARACHNE_GRAPH ?? resolve(import.meta.dirname, '../fixtures/mini.graph.json');
-const FIXTURE_ROOT = process.env.ARACHNE_ROOT ?? resolve(import.meta.dirname, '../fixtures/mini');
+const FIXTURE_GRAPH = process.env.LIGHTWEB_GRAPH ?? resolve(import.meta.dirname, '../fixtures/mini.graph.json');
+const FIXTURE_ROOT = process.env.LIGHTWEB_ROOT ?? resolve(import.meta.dirname, '../fixtures/mini');
 
 // Stands in for the Rust server during `npm run dev`. Serves the mini fixture
-// unless ARACHNE_GRAPH / ARACHNE_ROOT point at another graph and source tree.
+// unless LIGHTWEB_GRAPH / LIGHTWEB_ROOT point at another graph and source tree.
 // Like the server, it reports the source root as the graph's `project`.
 function fixtureApi(): Plugin {
   return {
-    name: 'arachne-fixture-api',
+    name: 'lightweb-fixture-api',
     configureServer(server) {
       server.middlewares.use(async (req, res, next) => {
         const url = req.url ?? '';

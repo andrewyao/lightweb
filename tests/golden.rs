@@ -1,12 +1,12 @@
 use std::path::Path;
 
-use arachne::wire::Graph;
+use lightweb::wire::Graph;
 
 #[test]
 fn mini_fixture_matches_golden_graph() {
     let fixtures = Path::new(env!("CARGO_MANIFEST_DIR")).join("fixtures");
     let root = fixtures.join("mini").canonicalize().unwrap();
-    let got = arachne::analyze(&root, None).unwrap();
+    let got = lightweb::analyze(&root, None).unwrap();
     assert_eq!(got.project, root.to_string_lossy());
     // The fixture stays portable: its `project` is empty rather than this machine's path.
     let got = Graph {

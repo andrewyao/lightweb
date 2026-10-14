@@ -38,7 +38,7 @@ async fn main() -> anyhow::Result<()> {
     match Cli::parse().command {
         Command::Graph { root, index } => {
             let root = canonical(&root)?;
-            let graph = arachne::analyze(&root, index.as_deref())?;
+            let graph = lightweb::analyze(&root, index.as_deref())?;
             println!("{}", serde_json::to_string(&graph)?);
         }
         Command::Serve {
@@ -48,8 +48,8 @@ async fn main() -> anyhow::Result<()> {
             no_open,
         } => {
             let root = canonical(&root)?;
-            let graph = arachne::analyze(&root, index.as_deref())?;
-            arachne::server::serve(root, graph, port, !no_open).await?;
+            let graph = lightweb::analyze(&root, index.as_deref())?;
+            lightweb::server::serve(root, graph, port, !no_open).await?;
         }
     }
     Ok(())
